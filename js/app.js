@@ -1,15 +1,29 @@
 function getInputField(inputFieldId) {
     const inputFieldText = document.getElementById(inputFieldId + '-field');
     const inputAmount = parseFloat(inputFieldText.value);
-    return inputAmount;
+    if (isNaN(inputAmount)) {
+        alert('Enter a valid amount for ' + inputFieldId.toUpperCase());
+        return -1;
+    }
+    else if (inputAmount < 0) {
+        alert('Enter a positive amount for ' + inputFieldId.toUpperCase());
+        return -1;
+    }
+    else {
+        return inputAmount;
+    }
 }
 
 
 document.getElementById('calculate-button').addEventListener('click', function () {
     const incomeAmount = getInputField('income');
+    if (incomeAmount == -1) return;
     const foodAmount = getInputField('food');
+    if (foodAmount == -1) return;
     const rentAmount = getInputField('rent');
+    if (rentAmount == -1) return;
     const clothAmount = getInputField('cloth');
+    // if (clothAmount == 0) return;
 
     const totalExpenses = foodAmount + rentAmount + clothAmount;
     const newBalance = incomeAmount - totalExpenses;
