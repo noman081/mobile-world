@@ -3,11 +3,11 @@ function getInputField(inputFieldId) {
     const inputAmount = parseFloat(inputFieldText.value);
     if (isNaN(inputAmount)) {
         alert('Enter a valid amount for ' + inputFieldId.toUpperCase());
-        return -1;
+
     }
     else if (inputAmount < 0) {
         alert('Enter a positive amount for ' + inputFieldId.toUpperCase());
-        return -1;
+
     }
     else {
         return inputAmount;
@@ -16,20 +16,27 @@ function getInputField(inputFieldId) {
 
 
 document.getElementById('calculate-button').addEventListener('click', function () {
+    document.getElementById('show-expenses').innerText = '';
+    document.getElementById('show-balance').innerText = '';
     const incomeAmount = getInputField('income');
-    if (incomeAmount == -1) return;
+    if (isNaN(incomeAmount)) return;
     const foodAmount = getInputField('food');
-    if (foodAmount == -1) return;
+    if (isNaN(foodAmount)) return;
     const rentAmount = getInputField('rent');
-    if (rentAmount == -1) return;
+    if (isNaN(rentAmount)) return;
     const clothAmount = getInputField('cloth');
-    // if (clothAmount == 0) return;
+    if (isNaN(clothAmount)) return;
 
     const totalExpenses = foodAmount + rentAmount + clothAmount;
     const newBalance = incomeAmount - totalExpenses;
 
-    document.getElementById('show-expenses').innerText = totalExpenses;
-    document.getElementById('show-balance').innerText = newBalance;
+    if (totalExpenses > incomeAmount) {
+        alert('Sorry! You do not have enough balace to spend.');
+    }
+    else {
+        document.getElementById('show-expenses').innerText = totalExpenses;
+        document.getElementById('show-balance').innerText = newBalance;
+    }
 })
 
 document.getElementById('savings-button').addEventListener('click', function () {
@@ -39,7 +46,12 @@ document.getElementById('savings-button').addEventListener('click', function () 
     const currentBalance = parseFloat(currentBalanceText);
     const savingsAmount = incomeAmount * (savingsPercentage / 100);
     const remainingBalance = currentBalance - savingsAmount;
-
-    document.getElementById('show-savings').innerText = savingsAmount;
+    if (savingsAmount > remainingBalance) {
+        alert('You do not have enough balance for savings');
+        return 0;
+    }
+    else {
+        document.getElementById('show-savings').innerText = savingsAmount;
+    }
     document.getElementById('show-remaining').innerText = remainingBalance;
 })

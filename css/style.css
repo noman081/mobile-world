@@ -4,9 +4,13 @@
 }
 input{
     background-color: #DCDCDC;
+    height: 36px;
 }
 .calculate-button{
     padding: 8px 30px;
     border-radius: 4px;
     font-size: 20px;
+}
+label{
+    font-size: 18px;
 }
