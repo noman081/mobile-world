@@ -17,3 +17,15 @@ document.getElementById('calculate-button').addEventListener('click', function (
     document.getElementById('show-expenses').innerText = totalExpenses;
     document.getElementById('show-balance').innerText = newBalance;
 })
+
+document.getElementById('savings-button').addEventListener('click', function () {
+    const savingsPercentage = getInputField('savings');
+    const incomeAmount = getInputField('income');
+    const currentBalanceText = document.getElementById('show-balance').innerText;
+    const currentBalance = parseFloat(currentBalanceText);
+    const savingsAmount = incomeAmount * (savingsPercentage / 100);
+    const remainingBalance = currentBalance - savingsAmount;
+
+    document.getElementById('show-savings').innerText = savingsAmount;
+    document.getElementById('show-remaining').innerText = remainingBalance;
+})
