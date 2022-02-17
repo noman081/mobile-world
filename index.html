@@ -27,59 +27,55 @@
                 <!--------------------------------
                     Income section starts here 
                  --------------------------------->
-                <section class="d-flex justify-content-center">
-                    <div class="mt-3">
-                        <h5 class="text-center">Income</h5>
-                        <label for="">Income: </label>
-                        <input type="text" class="border-0 rounded-2 ms-2" name="" id="income-field">
+                <section>
+                    <h5 class="text-center mt-3">Income</h5>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Income</label>
+                        <input type="text" class="form-control w-75" id="income-field" placeholder="Income">
                     </div>
                 </section>
                 <!-- Income section ends here  -->
 
                 <!--------------------------------
-                    Expenses section starts here 
-                 --------------------------------->
-                <section class="mt-3 d-flex justify-content-center">
+                        Expenses section starts here 
+                     --------------------------------->
+                <section>
+                    <h5 class="text-center mt-3">Expenses</h5>
+                    <div class="form-group mb-1">
+                        <label for="formGroupExampleInput">Food</label>
+                        <input type="text" class="form-control w-75" id="food-field" placeholder="Food Cost">
+                    </div>
+                    <div class="form-group mb-1">
+                        <label for="formGroupExampleInput">Rent</label>
+                        <input type="text" class="form-control w-75" id="rent-field" placeholder="Rent Cost">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="formGroupExampleInput">Cloth</label>
+                        <input type="text" class="form-control w-75" id="cloth-field" placeholder="Cloth Cost">
+                    </div>
+                    <button type="button" class="btn btn-primary" id="calculate-button">Calculate</button>
                     <div>
-                        <h5 class="text-center">Expenses</h5>
-                        <div class="d-flex">
-                            <label for="">Food: </label>
-                            <input type="text" class="border-0 rounded-2 ms-2 mb-3" name="" id="food-field">
-                        </div>
-                        <div class="d-flex">
-                            <label for="">Rent: </label>
-                            <input type="text" class="border-0 rounded-2 ms-3 mb-3" name="" id="rent-field">
-                        </div>
-                        <div class="d-flex">
-                            <label for="">Cloth: </label>
-                            <input type="text" class="border-0 rounded-2 ms-2 mb-3" name="" id="cloth-field">
-                        </div>
-                        <button type="button" class="ms-5 btn btn-info text-white calculate-button"
-                            id="calculate-button">Calculate</button>
-
-                        <!-- Total expenses and balance -->
-                        <h5 class="text-center mt-3">Total Expenses: <span id="show-expenses"></span></h5>
-                        <h5 class="text-center">Balance: <span id="show-balance"></span></h5>
+                        <h6 class=" mt-3">Total Expenses: <span id="show-expenses"></span></h6>
+                        <h6 class="">Balance: <span id="show-balance"></span></h6>
                     </div>
                 </section>
                 <!-- Expenses section ends here  -->
 
                 <!--------------------------------
-                    Saving section starts here 
-                 --------------------------------->
-                <section class="d-flex justify-content-center align-items-center mb-3">
-                    <div>
-                        <label for="">Save: </label>
-                        <input type="text" class="border-0 rounded-2 ms-2" name="" id="savings-field">
-                        <span> % </span>
-                        <button type="button"
-                            class="d-block d-flex justify-content-center ms-5 mt-3 btn btn-info text-white ms-3 "
-                            id="savings-button">Save</button>
+                        Saving section starts here 
+                     --------------------------------->
+                <section>
+                    <h5 class="text-center">Savings</h5>
+                    <div class="form-group mb-2">
+                        <label for="formGroupExampleInput">Save</label>
+                        <input type="text" class="form-control w-75" id="savings-field" placeholder="Savings in %">
 
-                        <!-- Total expenses and balance -->
-                        <h5 class="text-center mt-3">Saving Amount: <span id="show-savings"></span></h5>
-                        <h5 class="text-center">Remaining Balance: <span id="show-remaining"></span></h5>
                     </div>
+                    <button type="button" class="btn btn-primary" id="savings-button">Save</button>
+
+                    <!-- Total expenses and balance -->
+                    <h6 class="mt-3">Saving Amount: <span id="show-savings"></span></h6>
+                    <h6 class="">Remaining Balance: <span id="show-remaining"></span></h6>
                 </section>
                 <!-- saving section ends here  -->
             </div>
