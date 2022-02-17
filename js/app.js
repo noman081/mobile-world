@@ -1,3 +1,4 @@
+//getting input field value
 function getInputField(inputFieldId) {
     const inputFieldText = document.getElementById(inputFieldId + '-field');
     const inputAmount = parseFloat(inputFieldText.value);
@@ -13,13 +14,17 @@ function getInputField(inputFieldId) {
         return inputAmount;
     }
 }
+// settings value for initial output
+function getInitial(firstId, secondId) {
+    document.getElementById('show-' + firstId).innerText = '';
+    document.getElementById('show-' + secondId).innerText = '';
+}
 
-
+//handling calculate button
 document.getElementById('calculate-button').addEventListener('click', function () {
-    document.getElementById('show-expenses').innerText = '';
-    document.getElementById('show-balance').innerText = '';
-    document.getElementById('show-savings').innerText = '';
-    document.getElementById('show-remaining').innerText = '';
+    getInitial('expenses', 'balance');
+    getInitial('savings', 'remaining');
+
     const incomeAmount = getInputField('income');
     if (isNaN(incomeAmount)) return;
     const foodAmount = getInputField('food');
@@ -41,9 +46,9 @@ document.getElementById('calculate-button').addEventListener('click', function (
     }
 })
 
+//handling savings button
 document.getElementById('savings-button').addEventListener('click', function () {
-    document.getElementById('show-savings').innerText = '';
-    document.getElementById('show-remaining').innerText = '';
+    getInitial('savings', 'remaining');
     const savingsPercentage = getInputField('savings');
     const incomeAmount = getInputField('income');
     const currentBalanceText = document.getElementById('show-balance').innerText;
