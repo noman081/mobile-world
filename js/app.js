@@ -18,6 +18,8 @@ function getInputField(inputFieldId) {
 document.getElementById('calculate-button').addEventListener('click', function () {
     document.getElementById('show-expenses').innerText = '';
     document.getElementById('show-balance').innerText = '';
+    document.getElementById('show-savings').innerText = '';
+    document.getElementById('show-remaining').innerText = '';
     const incomeAmount = getInputField('income');
     if (isNaN(incomeAmount)) return;
     const foodAmount = getInputField('food');
@@ -48,13 +50,14 @@ document.getElementById('savings-button').addEventListener('click', function () 
     const currentBalance = parseFloat(currentBalanceText);
     const savingsAmount = incomeAmount * (savingsPercentage / 100);
     const remainingBalance = currentBalance - savingsAmount;
+    if (isNaN(currentBalance) || isNaN(savingsAmount)) return 0;
     if (savingsAmount > currentBalance) {
         alert('You do not have enough balance for savings');
         return 0;
     }
     else {
         document.getElementById('show-savings').innerText = savingsAmount;
+        document.getElementById('show-remaining').innerText = remainingBalance;
     }
-    if (isNaN(currentBalance)) return 0;
-    document.getElementById('show-remaining').innerText = remainingBalance;
+
 })
